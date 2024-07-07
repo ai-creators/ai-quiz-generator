@@ -1,6 +1,9 @@
 ---
 application:
   client-origin-url: ${CLIENT_ORIGIN_URL}
+  openai-model: ${OPENAI_MODEL}
+  openai-api-url: ${OPENAI_API_URL}
+  openai-api-key: ${OPENAI_API_KEY}
 
 server:
   error:
