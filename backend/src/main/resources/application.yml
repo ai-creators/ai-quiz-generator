@@ -1,5 +1,4 @@
 ---
-
 application:
   client-origin-url: ${CLIENT_ORIGIN_URL}
 
@@ -15,9 +14,15 @@ spring:
   web:
     resources:
       add-mappings: false
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
 
 okta:
   oauth2:
     issuer: ${OKTA_OAUTH2_ISSUER}
     audience: ${OKTA_OAUTH2_AUDIENCE}
-...

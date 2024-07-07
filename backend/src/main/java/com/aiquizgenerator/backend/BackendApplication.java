@@ -18,7 +18,10 @@ public class BackendApplication {
         PORT,
         CLIENT_ORIGIN_URL,
         OKTA_OAUTH2_ISSUER,
-        OKTA_OAUTH2_AUDIENCE
+        OKTA_OAUTH2_AUDIENCE,
+        DATABASE_URL,
+        DATABASE_USERNAME,
+        DATABASE_PASSWORD
     }
 
     public static void main(final String[] args) {

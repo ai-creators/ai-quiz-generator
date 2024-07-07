@@ -22,7 +22,7 @@ public class SecurityConfig {
     public SecurityFilterChain httpSecurity(final HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/messages/protected", "/api/messages/admin", "/api/account")
+                        .requestMatchers("/api/messages/protected", "/api/messages/admin", "/api/v1/account")
                         .authenticated()
                         .anyRequest().permitAll())
                 .cors(Customizer.withDefaults())
