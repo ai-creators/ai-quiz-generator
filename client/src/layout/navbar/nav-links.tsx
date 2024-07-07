@@ -16,31 +16,12 @@ const universalLinks: NavLink[] = [
     href: "/dashboard",
   },
   {
-    title: "Problems",
-    href: "/problems",
+    title: "Create",
+    href: "/create",
   },
   {
     title: "Play",
-    href: "",
-    children: [
-      {
-        title: "Code Battle",
-        href: "/battle",
-        description:
-          "Compete against other developers solving algorithm challenges.",
-      },
-      {
-        title: "Code Rush",
-        href: "/rush",
-        description:
-          "Solve as many algorithm challenges as fast as you can. Finish before the time runs out.",
-      },
-      {
-        title: "Survival",
-        href: "/survival",
-        description: "Solve algorithm challenges without making a mistake.",
-      },
-    ],
+    href: "/problems",
   },
 ];
 
@@ -51,13 +32,7 @@ const adminLinks: NavLink[] = [
   {
     title: "Admin",
     href: "",
-    children: [
-      {
-        title: "Create Problem",
-        href: "/create",
-        description: "Create problems, tests, and code setup.",
-      },
-    ],
+    children: [],
   },
 ];
 
@@ -111,7 +86,7 @@ const ListItem = React.forwardRef<
     <li>
       <NavigationMenuLink asChild>
         <Link
-          to={ref ?? ""}
+          to={`${ref}`}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className

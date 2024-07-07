@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.aiquizgenerator.backend;
 
 import static java.util.Arrays.stream;
 

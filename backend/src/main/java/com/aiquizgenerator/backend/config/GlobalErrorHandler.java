@@ -1,4 +1,4 @@
-package com.example.helloworld.config;
+package com.aiquizgenerator.backend.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.example.helloworld.models.ErrorMessage;
+import com.aiquizgenerator.backend.models.ErrorMessage;
 
 import jakarta.servlet.http.HttpServletRequest;
 

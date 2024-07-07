@@ -1,4 +1,4 @@
-package com.example.helloworld.config.security;
+package com.aiquizgenerator.backend.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,12 +22,13 @@ public class SecurityConfig {
     public SecurityFilterChain httpSecurity(final HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/messages/protected", "/api/messages/admin").authenticated()
+                        .requestMatchers("/api/messages/protected", "/api/messages/admin", "/api/account")
+                        .authenticated()
                         .anyRequest().permitAll())
                 .cors(Customizer.withDefaults())
                 .oauth2ResourceServer(oauth2 -> oauth2
-                                .jwt(jwt -> jwt.jwtAuthenticationConverter(makePermissionsConverter()))
-                                .authenticationEntryPoint(authenticationErrorHandler))
+                        .jwt(jwt -> jwt.jwtAuthenticationConverter(makePermissionsConverter()))
+                        .authenticationEntryPoint(authenticationErrorHandler))
                 .build();
     }
 

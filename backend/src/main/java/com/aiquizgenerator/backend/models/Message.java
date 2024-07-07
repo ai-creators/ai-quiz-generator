@@ -1,4 +1,4 @@
-package com.example.helloworld.models;
+package com.aiquizgenerator.backend.models;
 
 import lombok.Value;
 

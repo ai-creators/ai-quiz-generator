@@ -1,4 +1,4 @@
-package com.example.helloworld.config;
+package com.aiquizgenerator.backend.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.bind.ConstructorBinding;

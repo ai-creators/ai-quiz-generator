@@ -1,4 +1,4 @@
-package com.example.helloworld.config.security;
+package com.aiquizgenerator.backend.config.security;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import com.example.helloworld.models.ErrorMessage;
+import com.aiquizgenerator.backend.models.ErrorMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.servlet.ServletException;

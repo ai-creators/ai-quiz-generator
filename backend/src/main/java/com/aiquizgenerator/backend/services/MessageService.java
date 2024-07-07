@@ -1,8 +1,8 @@
-package com.example.helloworld.services;
+package com.aiquizgenerator.backend.services;
 
 import org.springframework.stereotype.Service;
 
-import com.example.helloworld.models.Message;
+import com.aiquizgenerator.backend.models.Message;
 
 @Service
 public class MessageService {
