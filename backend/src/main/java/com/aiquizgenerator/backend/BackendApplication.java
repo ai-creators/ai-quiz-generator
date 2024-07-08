@@ -21,7 +21,10 @@ public class BackendApplication {
         OKTA_OAUTH2_AUDIENCE,
         DATABASE_URL,
         DATABASE_USERNAME,
-        DATABASE_PASSWORD
+        DATABASE_PASSWORD,
+        OPENAI_MODEL,
+        OPENAI_API_URL,
+        OPENAI_API_KEY
     }
 
     public static void main(final String[] args) {
