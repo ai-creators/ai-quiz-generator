@@ -9,7 +9,7 @@ public class PromptBuilder {
     private Prompt prompt;
 
     public void setInitialPrompt(String initialPrompt){
-        prompt.setInitialPrompt(initialPrompt);
+        prompt.setPrompt(initialPrompt);
     }
 
     public void setQuestionsLength(){

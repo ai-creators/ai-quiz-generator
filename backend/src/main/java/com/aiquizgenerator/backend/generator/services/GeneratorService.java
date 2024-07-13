@@ -32,16 +32,15 @@ public class GeneratorService {
     private String chat(Prompt prompt){
         String requestBody = String.format(
             "{\n" +
-            "  \"model\": \"gpt-3.5-turbo\",\n" +
-            "  \"response_format\": { \"type\": \"json_object\"},\n" +
+            "  \"model\": \"" + applicationProps.getOpenaiModel() +"\",\n" +
+            // "  \"response_format\": { \"type\": \"json_object\"},\n" +
             "  \"messages\": [\n" +
             "    {\n" +
             "      \"role\": \"user\",\n" +
             "      \"content\": \"%s\"\n" +
             "    }\n" +
             "  ],\n" +
-            "  \"n\": 1\n" +  // Set the value of n to 1
-            "}", prompt.getContent().replace("\"", "\\\""));
+            "}", prompt.build().replace("\"", "\\\""));
 
         ChatRequest request = new ChatRequest(applicationProps.getOpenaiModel(), requestBody);
 
@@ -50,9 +49,19 @@ public class GeneratorService {
         if (response == null || response.getChoices() == null || response.getChoices().isEmpty()) {
             return "No response";
         }
+
+        System.out.println("Full ChatResponse: " + convertObjectToJson(response));
         
         // return the first response
         return response.getChoices().get(0).getMessage().getContent();
+    }
+
+    private String convertObjectToJson(Object obj) {
+        try {
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
+        } catch (Exception e) {
+            return "Error converting object to JSON: " + e.getMessage();
+        }
     }
 
     public Quiz generateQuiz(CreateQuizDto createQuizDto) {
@@ -60,11 +69,17 @@ public class GeneratorService {
         promptBuilder.setInitialPrompt(createQuizDto.getPrompt());
         promptBuilder.setQuestionsLength();
 
+        System.out.println("BEFORE");
+
         String quizJson = chat(promptBuilder.getPrompt());
+
+        System.out.println("AFTER");
+        System.out.println("JSON: " + quizJson);
 
         try {
             return objectMapper.readValue(quizJson, Quiz.class);
         } catch(Exception e){
+            System.out.println("ERROR: " + e.getMessage());
             throw new RuntimeException("Error creating a quiz. Try changing the prompt.");
         }
     }

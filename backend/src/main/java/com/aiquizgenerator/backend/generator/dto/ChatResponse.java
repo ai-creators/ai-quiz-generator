@@ -19,8 +19,16 @@ public class ChatResponse {
             return index;
         }
 
+        public void setIndex(int index){
+            this.index = index;
+        }
+
         public Message getMessage(){
             return message;
+        }
+
+        public void setMessage(Message message){
+            this.message = message;
         }
     }
 }

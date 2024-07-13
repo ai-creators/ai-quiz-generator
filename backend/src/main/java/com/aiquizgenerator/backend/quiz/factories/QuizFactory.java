@@ -21,9 +21,12 @@ public class QuizFactory {
         quizDto.setPrompt(quiz.getPrompt());
         quizDto.setCreatedAt(quiz.getCreatedAt());
         quizDto.setUpdatedAt(quiz.getUpdatedAt());
-        quizDto.setQuestions(quiz.getQuestions().stream()
-                .map(this::createQuestionDto)
-                .collect(Collectors.toSet()));
+
+        if (quizDto.getQuestions() != null) {
+            quizDto.setQuestions(quiz.getQuestions().stream()
+            .map(this::createQuestionDto)
+            .collect(Collectors.toSet()));
+        }
         
         return quizDto;
     }
