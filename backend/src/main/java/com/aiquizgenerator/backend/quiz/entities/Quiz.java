@@ -33,7 +33,8 @@ public class Quiz {
     @Column(length = 50, nullable = false)
     private String prompt;
 
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "question_id", nullable = false)
     private Set<Question> questions;
 
     @ManyToOne

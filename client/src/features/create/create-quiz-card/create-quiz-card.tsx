@@ -34,7 +34,7 @@ const CreateQuizCard = () => {
 
       const createdQuiz = await QuizService.getInstance().create(
         accessToken,
-        ""
+        prompt
       );
 
       if (createdQuiz?.id) {

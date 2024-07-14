@@ -8,7 +8,7 @@ import com.aiquizgenerator.backend.account.entities.Account;
 @Component
 public class AccountFactory {
     public Account create(CreateAccountDto createAccountDto) {
-        System.out.println(createAccountDto.getSub() + createAccountDto.getUsername());
+        
         Account account = new Account(
                 createAccountDto.getSub(),
                 createAccountDto.getUsername());

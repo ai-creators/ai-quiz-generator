@@ -28,8 +28,6 @@ public class QuizController {
     ) {
         Quiz generatedQuiz = generatorService.generateQuiz(createQuizDto);
 
-        generatedQuiz.setPrompt(createQuizDto.getPrompt());
-
         return quizService.create(generatedQuiz);
     }
 }

@@ -49,19 +49,8 @@ public class GeneratorService {
         if (response == null || response.getChoices() == null || response.getChoices().isEmpty()) {
             return "No response";
         }
-
-        System.out.println("Full ChatResponse: " + convertObjectToJson(response));
         
-        // return the first response
         return response.getChoices().get(0).getMessage().getContent();
-    }
-
-    private String convertObjectToJson(Object obj) {
-        try {
-            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
-        } catch (Exception e) {
-            return "Error converting object to JSON: " + e.getMessage();
-        }
     }
 
     public Quiz generateQuiz(CreateQuizDto createQuizDto) {
@@ -69,17 +58,18 @@ public class GeneratorService {
         promptBuilder.setInitialPrompt(createQuizDto.getPrompt());
         promptBuilder.setQuestionsLength();
 
-        System.out.println("BEFORE");
-
         String quizJson = chat(promptBuilder.getPrompt());
 
-        System.out.println("AFTER");
-        System.out.println("JSON: " + quizJson);
-
         try {
-            return objectMapper.readValue(quizJson, Quiz.class);
+            Quiz quiz= objectMapper.readValue(quizJson, Quiz.class);
+            quiz.setPrompt(createQuizDto.getPrompt());
+
+            if (quiz.getQuestions() == null || quiz.getQuestions().size() == 0) {
+                throw new RuntimeException("Error creating a quiz. Try changing the settings.");
+            }
+
+            return quiz;
         } catch(Exception e){
-            System.out.println("ERROR: " + e.getMessage());
             throw new RuntimeException("Error creating a quiz. Try changing the prompt.");
         }
     }

@@ -14,7 +14,7 @@ public class Prompt {
         The response must be in JSON format. Only return the json object. Dont include the json strings before and after the json object, just the object itself.
         Include in the JSON response a property of categories that is an array of strings of what the category is. 
         Furthermore, include a property isPg that is a boolean value if the quiz is PG rated. 
-        The quiz should be a property of quiz and is of type array containing question objects. 
+        The quiz should be a property of questions and is of type array containing question objects. 
         Each question object should have a property question and an array of answers, where each answer is an object with properties answer and isCorrect. 
         Also include a property of title that is the title of the quiz.
     """;
@@ -22,7 +22,7 @@ public class Prompt {
     private final String example = """
         {
             "title": "Taylor Swift Quiz",
-            "quiz": [
+            "questions": [
                 {
                     "question": "What is the name of Taylor Swift's debut album?",
                     "answers": [
