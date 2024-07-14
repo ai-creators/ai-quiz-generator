@@ -29,6 +29,7 @@ public class GlobalErrorHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Throwable.class)
     public ErrorMessage handleInternalError(final HttpServletRequest request, final Exception error) {
+        System.out.println("ERWOR: " + error.getMessage());
         return ErrorMessage.from(error.getMessage());
     }
 }
